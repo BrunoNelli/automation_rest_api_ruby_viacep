@@ -20,7 +20,7 @@ Entao('validar o retorno do endpoint de consulta de cep para o cenário {tipo}')
     expect(@retorno_api_cep['gia']).to eql(MASSA[@data_table['estado']]['gia'])
     expect(@retorno_api_cep['ddd']).to eql(MASSA[@data_table['estado']]['ddd'])
     expect(@retorno_api_cep['siafi']).to eql(MASSA[@data_table['estado']]['siafi'])
-    log("IBGE: #{@retorno_api_cep['ibge']}")
+    puts "IBGE: #{@retorno_api_cep['ibge']}"
   else
     expect(@retorno_api_cep.code).to eql(400)
   end
