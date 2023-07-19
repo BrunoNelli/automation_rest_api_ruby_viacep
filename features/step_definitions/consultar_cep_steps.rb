@@ -1,5 +1,5 @@
 Dado('ter uma massa configurada do endpoint consulta_cep para o cenário {tipo}') do |tipo, dados|
-  @data_table = create_data_table(dados)
+  @data_table = ApiCommons::BDD.new.create_data_table(dados)
   @cep = tipo.eql?('positivo') ? MASSA[@data_table['estado']]['cep'] : rand(100_000)
 end
 
