@@ -5,6 +5,21 @@ Exemplo de projeto utilizando boas práticas através da gem Rubocop.
 
 Neste projeto é validado cada campo do objeto JSON retornado, assim como seus valores, realizando consultas de cada estado do Brasil e apresentado o IBGE no console.
 
+### Rodando via docker sem configuração local
+#### Necessário instalação:
+- Docker e suas dependências (WSL2)
+
+#### Comandos no terminal:
+- No Console do Cmder/iTerm, digite o comando:
+    ```sh
+    docker build -t ruby-cucumber .
+    ```
+
+- Em seguida:
+    ```sh
+    docker run ruby-cucumber
+    ```
+
 ### Configurando sua máquina
 #### Necessário instalação:
 - Ruby _2.5.8_ ou superior
@@ -26,6 +41,13 @@ Neste projeto é validado cada campo do objeto JSON retornado, assim como seus v
   ```sh
   cucumber
   ```
+- Caso queira rodar os testes com o log do HTTParty ativado:
+  ```sh
+  cucumber -p api_log
+  ```
+
+### Relatório:
+Após o teste, o relatório de execução aparece na pasta _reports_, sendo em HTML ou JSON
 
 ### _Gems_ utilizadas:
 > Rspec - Responsável pelas assertividades e validações
