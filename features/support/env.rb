@@ -13,5 +13,3 @@ ParameterType(
   regexp: /positivo|negativo|validacao/,
   transformer: ->(type) { type }
 )
-
-World(ApiCommons) # Permite que os metodos dentro do arquivo api_commons sejam utilizados em qualquer arquivo .rb
