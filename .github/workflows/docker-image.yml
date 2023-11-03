@@ -11,10 +11,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    steps:
-      env:
+    env:
       IMAGE_TAG: my-image-name:$(date +%s)
+    steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ${{ env.IMAGE_TAG }}
