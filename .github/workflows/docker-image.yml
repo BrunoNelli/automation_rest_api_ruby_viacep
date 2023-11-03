@@ -12,14 +12,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set IMAGE_TAG
-      id: set_image_tag
-      run: echo "::set-output name=IMAGE_TAG::my-image-name:$(date +%s)"
+    - name: Create IMAGE_TAG environment file
+      run: echo "IMAGE_TAG=my-image-name:$(date +%s)" >> $GITHUB_ENV
 
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag ${{ steps.set_image_tag.outputs.IMAGE_TAG }}
+        docker build . --file Dockerfile --tag ${{ env.IMAGE_TAG }}
 
     - name: Run tests
       run: |
-        docker run ${{ steps.set_image_tag.outputs.IMAGE_TAG }}
+        docker run ${{ env.IMAGE_TAG }}
